@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marvelist</title>
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/angular-ui-bootstrap/ui-bootstrap-csp.css">
+	<link rel="stylesheet" type="text/css" href="src/main.css">
+</head>
+<body ng-app="marvelist">
+	<div ng-controller="Chars as vm" class="container">
+		<h3 class="center-text">Marvel Charachter List</h3>
+		<table class="table">
+  			<thead>
+  				<th>Id</th>
+  				<th>Name</th>
+  				<th>Detail</th>
+  			</thead>
+  			<tbody>
+  				<tr ng-repeat="char in vm.chars">
+  					<td ng-bind="char.id"></td>
+  					<td ng-bind="char.name"></td>
+  					<td><a target="_blank" ng-href="{{char.urls[0].url}}">view</a></td>
+  				</tr>
+  			</tbody>
+		</table>
+	</div>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="src/app.js"></script>
+</body>
+</html>
