@@ -16,17 +16,18 @@
   				<th>Detail</th>
   			</thead>
   			<tbody>
-  				<tr ng-repeat="char in vm.chars">
+  				<tr ng-repeat="char in vm.chars | mvPagination : vm.paginationSettings.currentPage : vm.paginationSettings.recordsPerPage">
   					<td ng-bind="char.id"></td>
   					<td ng-bind="char.name"></td>
   					<td><a target="_blank" ng-href="{{char.urls[0].url}}">view</a></td>
   				</tr>
   			</tbody>
 		</table>
-		<pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+		<pagination total-items="vm.chars.length" ng-model="vm.paginationSettings.currentPage" class="pagination-sm" boundary-links="true" rotate="false"></pagination>
 	</div>
 	<script src="node_modules/angular/angular.js"></script>
 	<script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
 	<script src="src/app.js"></script>
+	<script src="src/pagination.js"></script>
 </body>
 </html>

@@ -7,6 +7,13 @@
 
 	function Chars($http){	
 
+		this.chars = [];
+
+		this.paginationSettings = {
+			currentPage: 1,
+			recordsPerPage: 10
+		};
+
 		$http.get('./marvel.json')
 			.then(function(res){
 				this.chars = res.data;
